@@ -104,13 +104,13 @@ module.exports = {
 
 
 				// if city or country are missing, send meaningful msg
-				if( typeof req.params.city === "undefined" || typeof req.params.country === "undefined" ){
+				if( typeof req.params.city === "undefined"){
 					reject("missing city or country");
 				}
 
 				// build string with the url of openweathermap
 				var openweathermapApiKey = '931dd482db9863c889f68196f104be72';
-				var url = `https://api.openweathermap.org/data/2.5/weather?APPID=${openweathermapApiKey}&q=${req.params.city},${req.params.country}`;
+				var url = `https://api.openweathermap.org/data/2.5/weather?APPID=${openweathermapApiKey}&q=${req.params.city}`;
 				
 				// call the openweathermap api
 				request(url, function (error, response, body) {
@@ -141,13 +141,13 @@ module.exports = {
 
 
 				// if city or country are missing, send meaningful msg
-				if( typeof req.params.city === "undefined" || typeof req.params.country === "undefined" ){
+				if( typeof req.params.city === "undefined"){
 					reject("missing city or country");
 				}
 
 				// build string with the url of openweathermap
 				var openweathermapApiKey = '931dd482db9863c889f68196f104be72';
-				var url = `https://api.openweathermap.org/data/2.5/forecast?APPID=${openweathermapApiKey}&q=${req.params.city},${req.params.country}`;
+				var url = `https://api.openweathermap.org/data/2.5/forecast?APPID=${openweathermapApiKey}&q=${req.params.city}`;
 				
 				// call the openweathermap api
 				request(url, function (error, response, body) {

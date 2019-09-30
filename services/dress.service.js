@@ -47,13 +47,15 @@ module.exports = {
                 if ( 
                     // if description contains light rain or clouds, weather is variable
                     req.params.description.indexOf('light rain') > -1 ||
-                    req.params.description.indexOf('clouds') > -1
+                    req.params.description.indexOf('clouds') > -1 || 
+                    req.params.description.indexOf('mist') > -1
                 ) {
                     answerString += 'variable';
 
                 } else if ( 
                     // else if description contains only rain, the weather is rain
-                    req.params.description.indexOf('rain') > -1 
+                    req.params.description.indexOf('rain') > -1 || 
+                    req.params.description.indexOf('storm') > -1 
                 ) {
                     answerString += 'rain';
                 } else {
