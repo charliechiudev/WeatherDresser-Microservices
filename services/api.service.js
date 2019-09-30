@@ -21,11 +21,11 @@ module.exports = {
 		}],
 
 		   // HTTPS server with certificate
-		   https: {
-			key: fs.readFileSync("./config/key.pem"),
-			cert: fs.readFileSync("./config/cert.pem"),
-			passphrase: "0000"
-		},
+		   // https: {
+			// key: fs.readFileSync("./config/key.pem"),
+			// cert: fs.readFileSync("./config/cert.pem"),
+			// passphrase: "0000"
+		// },
 
 
 		// Serve assets from "public" folder
