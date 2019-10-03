@@ -71,7 +71,7 @@ module.exports = {
 
                 // to get a random number for the folder from different sets of dresses
                 var randomDress = Math.floor(Math.random() * (4 - 1) + 1);
-                answerString += '/'+randomDress+'/';
+                answerString += '/'+randomDress;
 
                 // if success, return the answer string
 				resolve(answerString);
