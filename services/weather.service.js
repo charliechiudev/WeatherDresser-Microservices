@@ -80,7 +80,8 @@ module.exports = {
 						reject(JSON.parse(error));
 					}
 
-					// the api contains the next 5 days, with array every three hours
+					// the api contains the next 5 days, with array of every three hours
+					// get useful items from list and store into custom 'tomorrow' which has exact same format as the 'now' one
 					var fiveDays = JSON.parse(body);
 					var cod = fiveDays.cod;
 					var t1 = fiveDays.list[7]["main"]["temp"];
@@ -89,6 +90,8 @@ module.exports = {
 					var main = fiveDays.list[10]["weather"][0]["main"];
 					var description = fiveDays.list[10]["weather"][0]["description"];
 					var icon = fiveDays.list[10]["weather"][0]["icon"];
+
+					// taken 6am[7] and 3pm[10] as min and max temp but to accurately check which is higher
 					var temp_min, temp_max;
 					if(t1 <= t2)
 						temp_min = t1;
@@ -100,6 +103,7 @@ module.exports = {
 					else
 						temp_max = t2;
 
+					// pass all I need to 'tomorrow'
 					var tomorrow = {
 					"cod": cod,
 						"main":{
@@ -115,7 +119,7 @@ module.exports = {
 							}
 						]
 					}
-					// for tomorrow, I'll return the segment of now + 24 hours ( 24 / 3 = 8, array start from 0, so the object number 7 is the one to return )
+
 					resolve(tomorrow);
 
 				});
@@ -201,6 +205,8 @@ module.exports = {
 					var description = fiveDays.list[10]["weather"][0]["description"];
 					var icon = fiveDays.list[10]["weather"][0]["icon"];
 					var temp_min, temp_max;
+
+					// taken 6am[7] and 3pm[10] as min and max temp but to accurately check which is higher
 					if(t1 <= t2)
 						temp_min = t1;
 					else
@@ -226,7 +232,6 @@ module.exports = {
 							}
 						]
 					}
-					// for tomorrow, I'll return the segment of now + 24 hours ( 24 / 3 = 8, array start from 0, so the object number 7 is the one to return )
 					resolve(tomorrow);
 
 				});
